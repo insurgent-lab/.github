@@ -9,10 +9,24 @@
     "docker:pinDigests",
     "helpers:pinGitHubActionDigests"
   ],
+  "ignorePresets": [":semanticPrefixFixDepsChoreOthers"],
   "schedule": ["before 5am every weekday", "every weekend"],
   "lockFileMaintenance": { "enabled": true, "automerge": true },
   "labels": ["dependencies"],
   "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "semanticCommitType": "chore"
+    },
+    {
+      "matchDepTypes": ["dependencies"],
+      "semanticCommitType": "build"
+    },
+    {
+      "matchDepTypes": ["action"],
+      "semanticCommitType": "ci",
+      "semanticCommitScope": "action"
+    },
     {
       "extends": ["packages:linters"],
       "groupName": "linters",
@@ -27,11 +41,6 @@
       "matchDepTypes": ["devDependencies"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
-    },
-    {
-      "matchDepTypes": ["action"],
-      "semanticCommitType": "ci",
-      "semanticCommitScope": "action"
     }
   ]
 }
