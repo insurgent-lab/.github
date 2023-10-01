@@ -48,7 +48,8 @@
         "@insurgentlab/commitlint-config"
       ],
       "groupName": "semantic-release & related packages",
-      "matchUpdateTypes": ["digest", "patch", "minor", "major"]
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
+      "minimumReleaseAge": "0"
     },
 
     {
