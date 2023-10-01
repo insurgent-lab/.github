@@ -9,7 +9,11 @@
     "docker:pinDigests",
     "helpers:pinGitHubActionDigests"
   ],
-  "ignorePresets": [":semanticPrefixFixDepsChoreOthers"],
+  "ignorePresets": [
+    ":semanticPrefixFixDepsChoreOthers",
+    "group:semantic-releaseMonorepo",
+    "group:commitlintMonorepo"
+  ],
   "schedule": ["before 5am every weekday", "every weekend"],
   "lockFileMaintenance": { "enabled": true, "automerge": true },
   "labels": ["dependencies"],
@@ -27,6 +31,26 @@
       "semanticCommitType": "ci",
       "semanticCommitScope": "action"
     },
+
+    {
+      "extends": ["monorepo:semantic-release"],
+      "groupName": "semantic-release & related packages",
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"]
+    },
+    {
+      "extends": ["monorepo:commitlint"],
+      "groupName": "semantic-release & related packages",
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"]
+    },
+    {
+      "matchPackagePatterns": [
+        "@insurgentlab/conventional-changelog-preset",
+        "@insurgentlab/commitlint-config"
+      ],
+      "groupName": "semantic-release & related packages",
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"]
+    },
+
     {
       "extends": ["packages:linters"],
       "groupName": "linters",
@@ -37,6 +61,7 @@
       "groupName": "tests",
       "addLabels": ["tests"]
     },
+
     {
       "matchDepTypes": ["devDependencies"],
       "matchUpdateTypes": ["minor", "patch"],
