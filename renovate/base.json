@@ -34,12 +34,12 @@
 
     {
       "extends": ["monorepo:semantic-release"],
-      "groupName": "semantic-release & related packages",
+      "groupName": "semantic-release related packages",
       "matchUpdateTypes": ["digest", "patch", "minor", "major"]
     },
     {
       "extends": ["monorepo:commitlint"],
-      "groupName": "semantic-release & related packages",
+      "groupName": "semantic-release related packages",
       "matchUpdateTypes": ["digest", "patch", "minor", "major"]
     },
     {
@@ -47,7 +47,7 @@
         "@insurgentlab/conventional-changelog-preset",
         "@insurgentlab/commitlint-config"
       ],
-      "groupName": "semantic-release & related packages",
+      "groupName": "semantic-release related packages",
       "matchUpdateTypes": ["digest", "patch", "minor", "major"],
       "minimumReleaseAge": "0"
     },
