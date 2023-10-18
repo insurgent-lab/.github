@@ -18,6 +18,7 @@
   "schedule": ["before 5am every weekday", "every weekend"],
   "lockFileMaintenance": { "enabled": true, "automerge": true },
   "labels": ["dependencies"],
+  "osvVulnerabilityAlerts": true,
   "packageRules": [
     {
       "matchPackagePatterns": ["*"],
