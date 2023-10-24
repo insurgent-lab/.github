@@ -1,0 +1,31 @@
+{
+  "id": 162535,
+  "name": "Default branch protection (no bypass)",
+  "target": "branch",
+  "source_type": "Repository",
+  "source": "sheerlox/import-from-esm",
+  "enforcement": "active",
+  "conditions": {
+    "ref_name": {
+      "exclude": [],
+      "include": [
+        "~DEFAULT_BRANCH"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "type": "deletion"
+    },
+    {
+      "type": "non_fast_forward"
+    },
+    {
+      "type": "required_linear_history"
+    },
+    {
+      "type": "required_signatures"
+    }
+  ],
+  "bypass_actors": []
+}
