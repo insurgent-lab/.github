@@ -19,7 +19,7 @@
       "parameters": {
         "required_status_checks": [
           {
-            "context": "test / required_check",
+            "context": "required_check",
             "integration_id": 15368
           }
         ],
