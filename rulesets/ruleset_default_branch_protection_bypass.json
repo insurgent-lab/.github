@@ -8,24 +8,10 @@
   "conditions": {
     "ref_name": {
       "exclude": [],
-      "include": [
-        "~DEFAULT_BRANCH"
-      ]
+      "include": ["~DEFAULT_BRANCH"]
     }
   },
   "rules": [
-    {
-      "type": "required_status_checks",
-      "parameters": {
-        "required_status_checks": [
-          {
-            "context": "required_check",
-            "integration_id": 15368
-          }
-        ],
-        "strict_required_status_checks_policy": true
-      }
-    },
     {
       "type": "pull_request",
       "parameters": {
