@@ -51,7 +51,9 @@
     {
       "matchPackagePatterns": [
         "@insurgentlab/conventional-changelog-preset",
-        "@insurgentlab/commitlint-config"
+        "@insurgentlab/commitlint-config",
+        "@insurgent/conventional-changelog-preset",
+        "@insurgent/commitlint-config"
       ],
       "groupName": "semantic-release related packages",
       "matchUpdateTypes": ["digest", "patch", "minor", "major"],
