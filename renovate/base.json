@@ -16,6 +16,7 @@
     "group:commitlintMonorepo"
   ],
   "schedule": ["before 5am every weekday", "every weekend"],
+  "rebaseWhen": "behind-base-branch",
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true,
