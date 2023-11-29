@@ -27,11 +27,13 @@
   "packageRules": [
     {
       "matchPackagePatterns": ["*"],
-      "semanticCommitType": "chore"
+      "semanticCommitType": "chore",
+      "semanticCommitScope": "deps"
     },
     {
       "matchDepTypes": ["dependencies"],
-      "semanticCommitType": "build"
+      "semanticCommitType": "build",
+      "semanticCommitScope": "deps"
     },
     {
       "matchDepTypes": ["action"],
