@@ -1,5 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>insurgent-lab/.github//renovate/base", ":pinVersions"],
+  "extends": [
+    "github>insurgent-lab/.github//renovate/elixir/elixir-base",
+    ":pinVersions"
+  ],
   "ignorePresets": [":pinOnlyDevDependencies"]
 }
