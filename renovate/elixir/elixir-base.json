@@ -4,13 +4,9 @@
   "packageRules": [
     {
       "matchPackagePatterns": ["*"],
+      "matchManagers": ["mix"],
       "semanticCommitType": "build",
       "semanticCommitScope": "deps"
-    },
-    {
-      "matchDepTypes": ["action"],
-      "semanticCommitType": "ci",
-      "semanticCommitScope": "action"
     }
   ]
 }
