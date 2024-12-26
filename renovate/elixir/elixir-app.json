@@ -4,5 +4,12 @@
     "github>insurgent-lab/.github//renovate/elixir/elixir-base",
     ":pinVersions"
   ],
-  "ignorePresets": [":pinOnlyDevDependencies"]
+  "ignorePresets": [":pinOnlyDevDependencies"],
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["debian", "erlang", "elixir"],
+      "semanticCommitType": "build",
+      "semanticCommitScope": "deps"
+    }
+  ]
 }
