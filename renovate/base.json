@@ -24,6 +24,7 @@
   },
   "labels": ["dependencies"],
   "osvVulnerabilityAlerts": true,
+  "configMigration": true,
   "packageRules": [
     {
       "matchPackagePatterns": ["*"],
