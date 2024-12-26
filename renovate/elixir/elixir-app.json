@@ -1,10 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>insurgent-lab/.github//renovate/elixir/elixir-base",
-    ":pinVersions"
-  ],
+  "extends": ["github>insurgent-lab/.github//renovate/elixir/elixir-base"],
   "ignorePresets": [":pinOnlyDevDependencies"],
+  "rangeStrategy": "pin",
   "packageRules": [
     {
       "matchPackagePatterns": ["debian", "erlang", "elixir"],
