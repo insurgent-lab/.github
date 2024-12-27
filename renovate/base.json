@@ -26,21 +26,23 @@
   "configMigration": true,
   "packageRules": [
     {
-      "matchPackagePatterns": ["*"],
+      "matchPackageNames": ["*"],
       "semanticCommitType": "chore",
-      "semanticCommitScope": "deps"
+      "semanticCommitScope": "deps",
+      "schedule": "* * 10 * *"
     },
     {
       "matchDepTypes": ["dependencies"],
       "semanticCommitType": "build",
-      "semanticCommitScope": "deps"
+      "semanticCommitScope": "deps",
+      "schedule": "at any time"
     },
     {
       "matchDepTypes": ["action"],
       "semanticCommitType": "ci",
-      "semanticCommitScope": "action"
+      "semanticCommitScope": "action",
+      "schedule": "* * * * SUN"
     },
-
     {
       "extends": ["monorepo:semantic-release"],
       "groupName": "semantic-release related packages",
@@ -52,7 +54,7 @@
       "matchUpdateTypes": ["digest", "patch", "minor", "major"]
     },
     {
-      "matchPackagePatterns": [
+      "matchPackageNames": [
         "@insurgentlab/conventional-changelog-preset",
         "@insurgentlab/commitlint-config",
         "@insurgent/conventional-changelog-preset",
@@ -62,7 +64,6 @@
       "matchUpdateTypes": ["digest", "patch", "minor", "major"],
       "minimumReleaseAge": "0"
     },
-
     {
       "extends": ["packages:linters"],
       "groupName": "linters",
@@ -73,16 +74,16 @@
       "groupName": "tests",
       "addLabels": ["tests"]
     },
-
     {
-      "matchDepTypes": ["devDependencies"],
+      "matchDepTypes": ["devDependencies", "action"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true,
       "automergeType": "branch"
     }
   ],
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "description": "Update `version:` and `_VERSION:` variables in github workflows",
       "fileMatch": ["^\\.github/workflows/[^/]+\\.ya?ml$"],
       "matchStrings": [
