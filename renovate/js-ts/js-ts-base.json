@@ -1,0 +1,53 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>insurgent-lab/.github//renovate/base",
+    ":pinOnlyDevDependencies",
+    "npm:unpublishSafe",
+    "group:semantic-releaseMonorepo",
+    "group:commitlintMonorepo"
+  ],
+  "ignorePresets": [
+    "group:semantic-releaseMonorepo",
+    "group:commitlintMonorepo",
+   ],
+  "npm": { "enabled": true },
+  "nvm": { "enabled": true },
+  "packageRules": [
+    {
+      "matchDepTypes": ["dependencies"],
+      "matchManagers": ["npm"],
+      "semanticCommitType": "build",
+      "semanticCommitScope": "deps",
+      "schedule": "at any time"
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "extends": ["monorepo:semantic-release"],
+      "groupName": "semantic-release related packages",
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"]
+    },
+    {
+      "extends": ["monorepo:commitlint"],
+      "groupName": "semantic-release related packages",
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"]
+    },
+    {
+      "matchPackageNames": [
+        "@insurgentlab/conventional-changelog-preset",
+        "@insurgentlab/commitlint-config",
+        "@insurgent/conventional-changelog-preset",
+        "@insurgent/commitlint-config"
+      ],
+      "groupName": "semantic-release related packages",
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
+      "minimumReleaseAge": "0"
+    }
+  ]
+}

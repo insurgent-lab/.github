@@ -4,18 +4,15 @@
     "config:recommended",
     ":dependencyDashboard",
     ":disableRateLimiting",
-    ":pinOnlyDevDependencies",
-    "npm:unpublishSafe",
     "docker:pinDigests",
     "helpers:pinGitHubActionDigestsToSemver",
     "security:openssf-scorecard"
   ],
   "ignorePresets": [
-    ":semanticPrefixFixDepsChoreOthers",
-    "group:semantic-releaseMonorepo",
-    "group:commitlintMonorepo"
+    ":semanticPrefixFixDepsChoreOthers"
   ],
   "rebaseWhen": "behind-base-branch",
+  "prCreation": "not-pending",
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true,
@@ -24,18 +21,19 @@
   "labels": ["dependencies"],
   "osvVulnerabilityAlerts": true,
   "configMigration": true,
+  "enabledManagers": [
+    "github-actions",
+    "docker-compose",
+    "dockerfile",
+    "asdf",
+    "regex"
+  ],
   "packageRules": [
     {
       "matchPackageNames": ["*"],
       "semanticCommitType": "chore",
       "semanticCommitScope": "deps",
-      "schedule": "* * 10 * *"
-    },
-    {
-      "matchDepTypes": ["dependencies"],
-      "semanticCommitType": "build",
-      "semanticCommitScope": "deps",
-      "schedule": "at any time"
+      "schedule": "* * 10,25 * *"
     },
     {
       "matchDepTypes": ["action"],
@@ -44,25 +42,10 @@
       "schedule": "* * * * SUN"
     },
     {
-      "extends": ["monorepo:semantic-release"],
-      "groupName": "semantic-release related packages",
-      "matchUpdateTypes": ["digest", "patch", "minor", "major"]
-    },
-    {
-      "extends": ["monorepo:commitlint"],
-      "groupName": "semantic-release related packages",
-      "matchUpdateTypes": ["digest", "patch", "minor", "major"]
-    },
-    {
-      "matchPackageNames": [
-        "@insurgentlab/conventional-changelog-preset",
-        "@insurgentlab/commitlint-config",
-        "@insurgent/conventional-changelog-preset",
-        "@insurgent/commitlint-config"
-      ],
-      "groupName": "semantic-release related packages",
-      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
-      "minimumReleaseAge": "0"
+      "matchDepTypes": ["action"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "branch"
     },
     {
       "extends": ["packages:linters"],
@@ -73,12 +56,6 @@
       "extends": ["packages:test"],
       "groupName": "tests",
       "addLabels": ["tests"]
-    },
-    {
-      "matchDepTypes": ["devDependencies", "action"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true,
-      "automergeType": "branch"
     }
   ],
   "customManagers": [
