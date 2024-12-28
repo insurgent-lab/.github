@@ -21,13 +21,6 @@
   "labels": ["dependencies"],
   "osvVulnerabilityAlerts": true,
   "configMigration": true,
-  "enabledManagers": [
-    "github-actions",
-    "docker-compose",
-    "dockerfile",
-    "asdf",
-    "regex"
-  ],
   "packageRules": [
     {
       "matchPackageNames": ["*"],

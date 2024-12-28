@@ -11,8 +11,6 @@
     "group:semantic-releaseMonorepo",
     "group:commitlintMonorepo",
    ],
-  "npm": { "enabled": true },
-  "nvm": { "enabled": true },
   "packageRules": [
     {
       "matchDepTypes": ["dependencies"],
