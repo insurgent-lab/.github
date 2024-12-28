@@ -1,5 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>insurgent-lab/.github//renovate/elixir/elixir-base"],
-  "rangeStrategy": "widen",
+  "rangeStrategy": "widen"
 }
