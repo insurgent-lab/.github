@@ -3,16 +3,16 @@
   "extends": ["github>insurgent-lab/.github//renovate/base"],
   "packageRules": [
     {
-      "matchDepTypes": ["prod"],
       "matchManagers": ["mix"],
+      "matchDepTypes": ["prod"],
       "semanticCommitType": "build",
       "semanticCommitScope": "deps",
       "schedule": "at any time"
     },
     {
-      "matchDepTypes": ["dev"],
       "matchManagers": ["mix"],
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchDepTypes": ["dev"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest"],
       "automerge": true,
       "automergeType": "branch"
     }

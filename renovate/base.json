@@ -1,15 +1,16 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
+    ":ignoreModulesAndTests",
+    "group:monorepos",
+    "group:recommended",
+    "replacements:all",
+    "workarounds:all",
     ":dependencyDashboard",
     ":disableRateLimiting",
     "docker:pinDigests",
     "helpers:pinGitHubActionDigestsToSemver",
     "security:openssf-scorecard"
-  ],
-  "ignorePresets": [
-    ":semanticPrefixFixDepsChoreOthers"
   ],
   "rebaseWhen": "behind-base-branch",
   "prCreation": "not-pending",
@@ -29,14 +30,14 @@
       "schedule": "* * 10,25 * *"
     },
     {
-      "matchDepTypes": ["action"],
+      "matchManagers": ["github-actions"],
       "semanticCommitType": "ci",
       "semanticCommitScope": "action",
-      "schedule": "* * * * SUN"
+      "schedule": "* * 10,25 * *"
     },
     {
-      "matchDepTypes": ["action"],
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest"],
       "automerge": true,
       "automergeType": "branch"
     },

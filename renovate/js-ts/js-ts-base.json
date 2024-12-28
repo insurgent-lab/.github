@@ -2,49 +2,49 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "github>insurgent-lab/.github//renovate/base",
-    ":pinOnlyDevDependencies",
-    "npm:unpublishSafe",
-    "group:semantic-releaseMonorepo",
-    "group:commitlintMonorepo"
+    "npm:unpublishSafe"
   ],
   "ignorePresets": [
     "group:semantic-releaseMonorepo",
-    "group:commitlintMonorepo",
+    "group:commitlintMonorepo"
    ],
   "packageRules": [
     {
-      "matchDepTypes": ["dependencies"],
       "matchManagers": ["npm"],
+      "matchDepTypes": ["dependencies"],
       "semanticCommitType": "build",
       "semanticCommitScope": "deps",
       "schedule": "at any time"
     },
     {
-      "matchDepTypes": ["devDependencies"],
       "matchManagers": ["npm"],
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "pinDigest"],
       "automerge": true,
       "automergeType": "branch"
     },
     {
+      "matchManagers": ["npm"],
       "extends": ["monorepo:semantic-release"],
-      "groupName": "semantic-release related packages",
-      "matchUpdateTypes": ["digest", "patch", "minor", "major"]
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
+      "groupName": "semantic-release related packages"
     },
     {
+      "matchManagers": ["npm"],
       "extends": ["monorepo:commitlint"],
-      "groupName": "semantic-release related packages",
-      "matchUpdateTypes": ["digest", "patch", "minor", "major"]
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
+      "groupName": "semantic-release related packages"
     },
     {
+      "matchManagers": ["npm"],
       "matchPackageNames": [
         "@insurgentlab/conventional-changelog-preset",
         "@insurgentlab/commitlint-config",
         "@insurgent/conventional-changelog-preset",
         "@insurgent/commitlint-config"
       ],
-      "groupName": "semantic-release related packages",
       "matchUpdateTypes": ["digest", "patch", "minor", "major"],
+      "groupName": "semantic-release related packages",
       "minimumReleaseAge": "0"
     }
   ]
