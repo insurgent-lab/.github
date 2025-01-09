@@ -4,6 +4,10 @@
   "packageRules": [
     {
       "matchManagers": ["mix"],
+      "enabled": true
+    },
+    {
+      "matchManagers": ["mix"],
       "semanticCommitType": "build",
       "semanticCommitScope": "deps",
       "schedule": "at any time"

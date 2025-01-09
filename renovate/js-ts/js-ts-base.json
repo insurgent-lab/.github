@@ -10,6 +10,10 @@
    ],
   "packageRules": [
     {
+      "matchManagers": ["npm", "nvm"],
+      "enabled": true
+    },
+    {
       "matchManagers": ["npm"],
       "matchDepTypes": ["dependencies"],
       "semanticCommitType": "build",

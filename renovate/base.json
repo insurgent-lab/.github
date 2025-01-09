@@ -24,6 +24,20 @@
   "configMigration": true,
   "packageRules": [
     {
+      "matchManagers": ["*"],
+      "enabled": false
+    },
+    {
+      "matchManagers": [
+        "github-actions",
+        "docker-compose",
+        "dockerfile",
+        "asdf",
+        "regex"
+      ],
+      "enabled": true
+    },
+    {
       "matchPackageNames": ["*"],
       "semanticCommitType": "chore",
       "semanticCommitScope": "deps",
